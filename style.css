@@ -1,11 +1,23 @@
+:root {
+    --body-color :    #1e202f;
+    --skew-color :   #1e202f;
+    --radial-gradient :#fb6fa9;
+    --repeat-gradient :  #ffb6b3;
+    --body-font-color : #9a90a7;
+    --border-color: #f87972;
+}
+
 body {
+    color:var(--body-font-color);
+    background-color: var(--body-color);
     margin: 0;
 }
 .header {
     padding: 2rem 1rem;
     display: flex;
     justify-content: center;
-    background-color: antiquewhite;
+    /* background-color: antiquewhite; */
+    padding-inline: 2rem;
     position: relative;
 }
 
@@ -15,36 +27,86 @@ body {
     top: 0;
     right: 0;
     left: 0;
-    bottom: 0;
-    transform: skewY(-11deg);
-
+    bottom:0;
+    background-color: var(--skew-color);
+    transform: skewY(-11deg) translate(0,-40%);
 }
+
 .img-container {
     flex-shrink: 0;
     position: relative;
     width: 400px;
     height: 500px;
+    border: 2px solid var(--border-color);
+    border-collapse: collapse;
 }
 
+.img-container::before {
+    position: absolute;
+    content: '';
+    left:-10%;
+    top: 10%;
+    width: 120px;
+    height: 50px;
+    background:radial-gradient(var(--radial-gradient) 10%, transparent 11%) repeat;
+    z-index: 10;
+    background-size: 10px 10px;
+} 
+
+.info::after {
+    content: '';
+    position: absolute;
+    background: repeating-linear-gradient(
+        45deg,          /* Diagonal angle */
+        var(--repeat-gradient),          /* Starting color */
+        var(--repeat-gradient) 10px,     /* End of the first black stripe */
+        transparent 10px, /* Start of the transparent stripe */
+        transparent 20px  /* End of the transparent stripe */
+      );
+    width: 120px;
+    height: 30px;
+    left: 90%;
+    top: 95%;
+} 
+
 .info {
+    z-index: 2;
     padding: 3rem 1rem;
     align-self: center;
     flex-basis: 900px;
     font-size: 1.5rem;
-    background-color: blueviolet;
+    border: 2px solid var(--border-color);
+    margin-left: -2px; 
+    margin-top: -2px;
+    position: relative;
 }
 
+.info::before {
+    color: var(--border-color);
+    position: absolute;
+    content: '[ About Me ]';
+    top: 0;
+    left: 75%;
+    background-color: var(--skew-color);
+    transform: translate(-50%,-50%);
+}
+.info h3 {
+    display: none;
+}
 h2 {
     position: absolute;
     bottom: 0;
     left: 50%;
     transform: translate(-50%,50%);
+    z-index: 3;
 }
+
 img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: top;
+    filter: grayscale(60%);
 }
 
 @media (max-width:1024px) {
@@ -52,30 +114,38 @@ img {
         display: block;
         padding: 2rem 3rem;
     }
+    .header::before {
+        isolation: isolate
+    }
 
     .img-container {
+        z-index: 2;
         float: left;
         margin: 0 1rem 5px 0;
     }
 
     h2 {
-        bottom: 70%;
+        bottom: 80%;
         left: 100%;
-        /* transform: translate(150%,-600%); */
+        border: 2px solid var(--radial-gradient);
+        padding: 10px;
     }
 
     .info {
+        position: relative;
+        z-index: 1;
         padding: 50px 20px;
         margin: 10rem 1rem 1rem;
     }
 }
 
-@media (max-width:600px) {
+@media (max-width:750px) {
     .header {
         display: flex;
         align-items: center;
         flex-wrap: wrap;
-        padding: 10px;
+        padding-inline: 2rem;
+
     }
     .info {
         margin: 0;
@@ -86,10 +156,15 @@ img {
         width: 100%;
     }
     h2 {
+        border: none;
         bottom: 0;
         left: 50%;
     }
+    .info::before {
+        content: '';
+    }
     .info h3 {
+        display: block;
         text-align: center;
     }
 }
