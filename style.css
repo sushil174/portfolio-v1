@@ -157,7 +157,7 @@ header img {
     border: 2px solid var(--border-color);
     padding: 4rem;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
     gap: 1rem;
     position: relative;
     background: radial-gradient(var(--radial-gradient) 10% , transparent 10% ) repeat;
@@ -423,10 +423,11 @@ footer p {
         overflow-x: hidden;
     }
     .header {
+        margin: 1rem;
         display: flex;
         align-items: center;
         flex-wrap: wrap;
-        padding-inline: 2rem;
+        padding-inline: 1rem;
 
     }
     .info {
