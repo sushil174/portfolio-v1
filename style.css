@@ -407,6 +407,16 @@ footer p {
         margin-top: 3rem;
     }
 }
+.img-src a{
+    text-align: center;
+    color: var(--border-color);
+    text-decoration: underline;
+}
+
+.img-src {
+    text-align: center;
+    color: var(--body-font-color);
+}
 
 @media (max-width:750px) {
     body {
