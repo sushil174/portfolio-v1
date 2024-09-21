@@ -44,6 +44,7 @@ body {
     border-collapse: collapse;
 }
 
+
 .img-container::before {
     position: absolute;
     content: '';
@@ -72,6 +73,16 @@ body {
     top: 95%;
 } 
 
+
+@keyframes infoShow {
+    from {
+        transform: scaleX(0);
+    }
+    to {
+        transform: scaleX(1);
+    }
+}
+
 .info {
     z-index: 2;
     padding: 3rem 1rem;
@@ -81,6 +92,8 @@ body {
     margin-left: -2px; 
     margin-top: -2px;
     position: relative;
+    transform-origin: left center;
+    animation: infoShow .3s ease;
 }
 
 .info::before {
@@ -95,7 +108,7 @@ body {
 .info h3 {
     display: none;
 }
-h2 {
+.img-container h2 {
     position: absolute;
     bottom: 0;
     left: 50%;
@@ -141,6 +154,7 @@ header img {
     position: relative;
     background: radial-gradient(var(--radial-gradient) 10% , transparent 10% ) repeat;
     background-size: 20px 25px;
+    transition: background-position 3s ease;
 }
 
 .cards::before{
@@ -174,6 +188,201 @@ header img {
 }
 
 
+footer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit ,minmax(300px,1fr));
+    justify-content: space-around;
+    padding: 2rem;
+    margin: 10rem 5rem 5rem 5rem;
+    position: relative;
+    border: 2px solid var(--border-color);
+}
+
+footer::before {
+    color: var(--border-color);
+    background-color: var(--body-color);
+    position: absolute;
+    content: '[ Contact Me ]';
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 0;
+}
+footer h2 {
+    text-align: center;
+
+}
+
+footer img {
+    width: 1.8em;
+}
+footer p {
+    display: flex;
+    align-items: center;
+}
+
+/* 3D cube style */
+
+
+.container-cube .scene {
+    width: 150px;
+    height: 150px;
+    perspective: 300px;
+}
+
+.container-cube .cube {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: translateZ(-75px);
+    animation: cubeAnime 10s forwards infinite linear
+    
+}
+@keyframes cubeAnime {
+    to {
+        transform: translateZ(-75px) rotateY(1turn) rotateX(1turn);
+        /* transform: rotate3d(1, 1, 0, 45deg); */
+    }
+}
+.container-cube .face {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border: 2px solid var(--border-color);
+    display: grid;
+    place-items: center;
+    font-size: 2.5rem;
+    color: white;
+    /* opacity: .8; */
+}
+
+.container-cube .front {
+    /* background-color: rgb(5, 5, 70); */
+    /* background: radial-gradient(var(--radial-gradient) 10% , transparent 10% ) repeat;
+    background-size: 20px 25px; */
+    background: repeating-linear-gradient(
+        45deg,       
+        var(--repeat-gradient),         
+        var(--repeat-gradient) 10px,     
+        var(--body-color) 10px, 
+        var(--body-color) 20px  
+      );
+    transform: rotateY(0deg) translateZ(75px);
+}
+
+.container-cube .back {
+    /* background-color: rgb(77, 7, 7); */
+    /* background: radial-gradient(var(--radial-gradient) 10% , transparent 10% ) repeat;
+    background-size: 20px 25px; */
+
+    background: repeating-linear-gradient(
+        45deg,       
+        var(--repeat-gradient),         
+        var(--repeat-gradient) 10px,     
+        var(--body-color) 10px, 
+        var(--body-color) 20px  
+      );
+    transform: rotateY(180deg) translateZ(75px);
+}
+
+ 
+.container-cube .right {
+    /* background-color: rgb(3, 49, 3); */
+    /* background: radial-gradient(var(--radial-gradient) 10% , transparent 10% ) repeat;
+    background-size: 20px 25px; */
+
+    background: repeating-linear-gradient(
+        45deg,       
+        var(--repeat-gradient),         
+        var(--repeat-gradient) 10px,     
+        var(--body-color) 10px, 
+        var(--body-color) 20px  
+      );
+    transform: rotateY(90deg) translateZ(75px);
+}
+
+.container-cube .left {
+    /* background-color: rgb(0, 89, 89); */
+    /* background: radial-gradient(var(--radial-gradient) 10% , transparent 10% ) repeat;
+    background-size: 20px 25px; */
+
+    background: repeating-linear-gradient(
+        45deg,       
+        var(--repeat-gradient),         
+        var(--repeat-gradient) 10px,     
+        var(--body-color) 10px, 
+        var(--body-color) 20px  
+      );
+    transform: rotateY(-90deg) translateZ(75px);
+}
+
+.container-cube .top {
+    /* background-color: rgb(95, 10, 25); */
+    /* background: radial-gradient(var(--radial-gradient) 10% , transparent 10% ) repeat;
+    background-size: 20px 25px; */
+
+    background: repeating-linear-gradient(
+        45deg,       
+        var(--repeat-gradient),         
+        var(--repeat-gradient) 10px,     
+        var(--body-color) 10px, 
+        var(--body-color) 20px  
+      );
+    transform: rotateX(90deg) translateZ(75px);
+}
+
+.container-cube .bottom {
+    /* background-color: rgb(118, 4, 120); */
+    /* background: radial-gradient(var(--radial-gradient) 10% , transparent 10% ) repeat;
+    background-size: 20px 25px; */
+
+    background: repeating-linear-gradient(
+        45deg,       
+        var(--repeat-gradient),         
+        var(--repeat-gradient) 10px,     
+        var(--body-color) 10px, 
+        var(--body-color) 20px  
+      );
+    transform: rotateX(-90deg) translateZ(75px);
+}
+
+/* .container-cube .show-front {
+    transform: translateZ(-100px) rotateY(0);
+}
+
+.container-cube .show-back {
+    transform: translateZ(-100px) rotateY(-180deg);
+}
+
+.container-cube .show-right {
+    transform: translateZ(-100px) rotateY(-90deg);
+}
+
+.container-cube .show-left {
+    transform: translateZ(-100px) rotateY(90deg);
+}
+
+.container-cube .show-top {
+    transform: translateZ(-100px) rotateX(-90deg);
+}
+
+.container-cube .show-bottom {
+    transform: translateZ(-100px) rotateX(90deg);
+} */
+
+.container-cube {
+    display: flex;
+    justify-content: center;
+    gap: 5em;
+    margin: 5em 5em;
+}
+.container-cube .buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+
 @media (max-width:1024px) {
     .header {
         margin-top: 2rem;
@@ -190,7 +399,7 @@ header img {
         margin: 0 1rem 5px 0;
     }
 
-    h2 {
+    .img-container h2 {
         bottom: 80%;
         left: 100%;
         border: 2px solid var(--radial-gradient);
@@ -202,6 +411,10 @@ header img {
         z-index: 1;
         padding: 50px 20px;
         margin: 10rem 1rem 1rem;
+    }
+
+    footer {
+        margin-top: 3rem;
     }
 }
 
@@ -224,7 +437,7 @@ header img {
         margin: auto;
         width: 100%;
     }
-    h2 {
+    .img-container h2 {
         border: none;
         bottom: 0;
         left: 50%;
@@ -250,4 +463,11 @@ header img {
     .section {
         margin: 1rem;
     }
+
+    footer {
+        word-wrap: break-word;
+        margin: 1rem;
+        padding: .5rem;
+    }
+
 }
