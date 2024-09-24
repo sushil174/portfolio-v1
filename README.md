@@ -1,1 +1,1 @@
-[visist](https://sushil174.github.io/portfolio-v1/)
+[Visit](https://sushil174.github.io/portfolio-v1/)
