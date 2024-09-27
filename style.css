@@ -1,6 +1,21 @@
 :root {
+    --body-color :     #2a2734;
+    /* --skew-color :   #1e202f; */
+    --body-font-color :  #d9d2fe;
+    --radial-gradient :#8f6c93;
+    --repeat-gradient :  #81C8BE;
+    --border-color: #f87972;
+    --grayscale : 10%;
+    --contrast : 180%;
+    --brightness: 60%;
+}
+@font-face {
+    font-family: 'myFont';
+    src: url('assets/KodeMono-VariableFont_wght.ttf');
+}
+
+/* :root {
     --body-color :    #1e202f;
-    --skew-color :   #1e202f;
     --body-font-color : #9a90a7;
     --radial-gradient :#9C637A;
     --repeat-gradient :  #ffb6b3;
@@ -8,14 +23,17 @@
     --grayscale : 10%;
     --contrast : 180%;
     --brightness: 60%;
-}
+} */
+
 
 body {
-    font-family: 'Courier New', Courier, monospace;
+    font-family:'myFont';
     color:var(--body-font-color);
     background-color: var(--body-color);
     margin: 0;
     font-size: 1.10rem;
+    line-height: 1.5;
+    font-weight: bold;
 }
 
 .dark-mode-toggle {
@@ -32,14 +50,29 @@ body {
     width: 30px;
     height: 30px;
 }
+
 .lightmode {
+    --grayscale : 10%;
+    --contrast : 160%;
+    --brightness: 80%;
+    --body-color :   #E4E5F1;
+    --skew-color :    var(--body-color);
+    --body-font-color : #000000;
+    --radial-gradient : #6D93BB;
+    --repeat-gradient :    #D33061;
+    --border-color: #D52753;
+
+}
+
+/* .lightmode {
     --grayscale : 10%;
     --contrast : 160%;
     --brightness: 80%;
     --body-color :   #e1e6ff;
     --skew-color :    var(--body-color);
     --body-font-color : #1e202f;
-}
+} */
+
 
 a{
     text-decoration: none;
@@ -65,7 +98,7 @@ i {
     position: relative;
     width: 400px;
     height: 500px;
-    border: 2px solid var(--border-color);
+    border: 3px solid var(--border-color);
 }
 
 
@@ -129,7 +162,7 @@ i {
     content: '[ About Me ]';
     top: 0;
     left: 75%;
-    background-color: var(--skew-color);
+    background-color: var(--body-color);
     transform: translate(-50%,-50%);
 }
 
@@ -268,21 +301,22 @@ footer p {
     position: relative;
     transform-style: preserve-3d;
     transform: translateZ(-75px);
-    animation: cubeAnime 10s forwards infinite linear
+    animation: cubeAnime 10s forwards infinite linear;
     
 }
 
 @keyframes cubeAnime {
     to {
-        transform: translateZ(-75px) rotateY(1turn) rotateX(1turn);
-        /* transform: rotate3d(1, 1, 0, 45deg); */
+        transform: translateZ(-75px) rotateY(1turn) rotateX(1turn)
     }
 }
 .container-cube .face {
     position: absolute;
     width: 150px;
     height: 150px;
-    border: 2px solid var(--border-color);
+    /* border: 3px dotted var(--border-color); */
+    background: radial-gradient(var(--repeat-gradient) 20% , var(--body-color) 20% ) repeat;
+    background-size: 15px 15px;
     display: grid;
     place-items: center;
     font-size: 2.5rem;
@@ -291,79 +325,27 @@ footer p {
 }
 
 .container-cube .front {
-
-    /* background: repeating-linear-gradient(
-        45deg,       
-        var(--repeat-gradient),         
-        var(--repeat-gradient) 10px,     
-        var(--body-color) 10px, 
-        var(--body-color) 20px  
-      ); */
     transform: rotateY(0deg) translateZ(75px);
 }
 
 .container-cube .back {
-
-/* 
-    background: repeating-linear-gradient(
-        45deg,       
-        var(--repeat-gradient),         
-        var(--repeat-gradient) 10px,     
-        var(--body-color) 10px, 
-        var(--body-color) 20px  
-      ); */
     transform: rotateY(180deg) translateZ(75px);
 }
 
  
 .container-cube .right {
-
-
-    /* background: repeating-linear-gradient(
-        45deg,       
-        var(--repeat-gradient),         
-        var(--repeat-gradient) 10px,     
-        var(--body-color) 10px, 
-        var(--body-color) 20px  
-      ); */
     transform: rotateY(90deg) translateZ(75px);
 }
 
 .container-cube .left {
-
-/* 
-    background: repeating-linear-gradient(
-        45deg,       
-        var(--repeat-gradient),         
-        var(--repeat-gradient) 10px,     
-        var(--body-color) 10px, 
-        var(--body-color) 20px  
-      ); */
     transform: rotateY(-90deg) translateZ(75px);
 }
 
 .container-cube .top {
-
-
-    /* background: repeating-linear-gradient(
-        45deg,       
-        var(--repeat-gradient),         
-        var(--repeat-gradient) 10px,     
-        var(--body-color) 10px, 
-        var(--body-color) 20px  
-      ); */
     transform: rotateX(90deg) translateZ(75px);
 }
 
 .container-cube .bottom {
-/* 
-    background: repeating-linear-gradient(
-        45deg,       
-        var(--repeat-gradient),         
-        var(--repeat-gradient) 10px,     
-        var(--body-color) 10px, 
-        var(--body-color) 20px  
-      ); */
     transform: rotateX(-90deg) translateZ(75px);
 }
 
