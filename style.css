@@ -14,6 +14,7 @@
     src: url('assets/KodeMono-VariableFont_wght.ttf');
 }
 
+
 /* :root {
     --body-color :    #1e202f;
     --body-font-color : #9a90a7;
@@ -105,14 +106,15 @@ i {
 .img-container::before {
     position: absolute;
     content: '';
-    left:-10%;
+    left:-20%;
     top: 10%;
-    width: 120px;
-    height: 50px;
-    background:radial-gradient(var(--radial-gradient) 10%, transparent 11%) repeat;
+    width: 10em;
+    height: 15%;
+    background:radial-gradient(var(--repeat-gradient) 10%, transparent 11%) repeat;
     z-index: 10;
-    background-size: 10px 10px;
+    background-size: 15px 15px;
 } 
+
 
 .info::after {
     content: '';
