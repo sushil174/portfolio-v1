@@ -1,13 +1,14 @@
 :root {
-    --body-color :     #2a2734;
-    /* --skew-color :   #1e202f; */
-    --body-font-color :  #d9d2fe;
-    --radial-gradient :#8f6c93;
-    --repeat-gradient :  #81C8BE;
-    --border-color: #f87972;
     --grayscale : 10%;
-    --contrast : 180%;
-    --brightness: 60%;
+    --contrast : 160%;
+    --brightness: 80%;
+    --body-color :   #E4E5F1;
+    --skew-color :    var(--body-color);
+    --body-font-color : #000000;
+    --radial-gradient : #6D93BB;
+    --repeat-gradient :    #D33061;
+    --border-color: #D52753;
+
 }
 @font-face {
     font-family: 'myFont';
@@ -53,15 +54,17 @@ body {
 }
 
 .lightmode {
+
+    --body-color :     #2a2734;
+    /* --skew-color :   #1e202f; */
+    --body-font-color :  #d9d2fe;
+    --radial-gradient :#8f6c93;
+    --repeat-gradient :  #8f6c93;
+    --border-color: #f87972;
     --grayscale : 10%;
-    --contrast : 160%;
-    --brightness: 80%;
-    --body-color :   #E4E5F1;
-    --skew-color :    var(--body-color);
-    --body-font-color : #000000;
-    --radial-gradient : #6D93BB;
-    --repeat-gradient :    #D33061;
-    --border-color: #D52753;
+    --contrast : 180%;
+    --brightness: 60%;
+
 
 }
 
