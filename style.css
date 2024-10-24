@@ -105,7 +105,6 @@ i {
     border: 3px solid var(--border-color);
 }
 
-
 .img-container::before {
     position: absolute;
     content: '';
@@ -126,8 +125,8 @@ i {
         45deg,          /* Diagonal angle */
         var(--repeat-gradient),          /* Starting color */
         var(--repeat-gradient) 10px,     /* End of the first black stripe */
-        transparent 10px, /* Start of the transparent stripe */
-        transparent 20px  /* End of the transparent stripe */
+        var(--body-color) 10px, /* Start of the transparent stripe */
+        var(--body-color) 20px  /* End of the transparent stripe */
       );
     width: 120px;
     height: 30px;
@@ -197,8 +196,18 @@ header img {
     background-color: var(--radial-gradient);
     position: relative;
     width: 100%;
+    padding: 5px;
 }
+.links a{
+    transition: transform .2s ease-in-out;
 
+}
+.links a:hover {
+    transform:  scale(1.09);
+}
+.card:hover .links a {
+    display: block;
+}
 .img img{
     object-fit: cover;
     width: 100%;
@@ -213,7 +222,7 @@ header img {
     padding: 2rem;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(100%,300px),1fr));
-    gap: 1rem;
+    gap: 1.5rem;
     position: relative;
     background: radial-gradient(var(--radial-gradient) 10% , transparent 10% ) repeat;
     background-size: 20px 25px;
@@ -431,7 +440,9 @@ footer p {
 
     .img-container {
         margin: auto;
-        width: 100%;
+        width: 100%;    
+        border: none;
+
     }
 
     .img-container h2 {
@@ -474,7 +485,9 @@ footer p {
         top: 1em;
         right: 1em;
     }
-
+    .img-src {
+        font-size: .8rem;
+    }
 }
 
 /* @media (prefers-color-scheme: light) {
