@@ -200,9 +200,15 @@ header img {
     width: 100%;
     padding: 5px;
 }
+
+.card:hover .img img {
+    transform: scale(1.05);
+    
+}
+
+
 .links a{
     transition: transform .2s ease-in-out;
-
 }
 .links a:hover {
     transform:  scale(1.09);
@@ -210,11 +216,18 @@ header img {
 .card:hover .links a {
     display: block;
 }
+
+.img {
+    overflow: hidden;
+    transition: transform .2s ease-in-out;
+}
 .img img{
     object-fit: cover;
     width: 100%;
     height: auto;
     background-color: var(--radial-gradient);
+    transition: transform .2s ease-in-out;
+
 }
 
 
