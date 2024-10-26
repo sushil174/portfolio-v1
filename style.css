@@ -441,13 +441,15 @@ footer p {
     body {
         overflow-x: hidden;
         font-size: 1rem;
+        margin: 0;
     }
     .header {
-        /* margin: 1rem; */
+        margin: 0;
         display: flex;
         align-items: center;
         flex-wrap: wrap;
-        padding-inline: 1rem;
+        padding: 0;
+        padding-bottom:1rem;
 
     }
     .info {
@@ -455,7 +457,7 @@ footer p {
     }
 
     .img-container {
-        margin: auto;
+        margin: 0;
         width: 100%;    
         border: none;
 
@@ -468,10 +470,10 @@ footer p {
     }
 
     .info::after {
-        position: absolute;
+        /* position: absolute;
         transform: rotate(90deg);
-        /* top: 50%; */
-        left: 85%;
+        left: 85%; */
+        content: none;
     }
     .info::before {
         content: '';
@@ -484,16 +486,17 @@ footer p {
 
     .cards {
         margin: 0;
-        padding: 20px;
+        padding-inline: 30px;
+        place-items: center;
     }
 
     .section {
-        margin: 1rem;
+        margin: 0;
     }
 
     footer {
         word-wrap: break-word;
-        margin: 1rem;
+        margin: 1rem 0;
         padding: .5rem;
     }   
 
